@@ -1,0 +1,55 @@
+buildscript {
+	ext {
+		springBootVersion = '2.0.3.RELEASE'
+		igniteVersion ='2.5.2'
+	}
+	repositories {
+		mavenCentral()
+	}
+	dependencies {
+		classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+	}
+}
+
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'org.springframework.boot'
+apply plugin: 'io.spring.dependency-management'
+
+group = 'boot-datagrid'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = 1.8
+
+repositories {
+
+	maven{
+	  url "http://www.gridgainsystems.com/nexus/content/repositories/external/"
+	}
+	
+	mavenCentral()
+}
+
+
+dependencies {
+    //Ignite deps
+    compile group: 'org.apache.ignite', name: 'ignite-core', version: '2.5.2'
+    compile group: 'org.apache.ignite', name: 'ignite-spring', version: '2.5.2'
+    compile group: 'org.apache.ignite', name: 'ignite-indexing', version: '2.5.2'
+	compile group: 'org.apache.ignite', name: 'ignite-hibernate_5.1', version: '2.5.2'
+	compile group: 'com.h2database', name: 'h2', version: '1.4.195'
+	
+	//Ignite 2.5 supports hibernate 5.1, but spring boot brings in 5.2 dependencies
+	compile group: 'org.hibernate', name: 'hibernate-core', version: '5.1.0.Final'
+	compile group: 'org.hibernate', name: 'hibernate-entitymanager', version: '5.1.0.Final'
+	compile group: 'org.hibernate', name: 'hibernate-validator', version: '5.1.0.Final'
+	compile group: 'org.hibernate.common', name: 'hibernate-commons-annotations', version: '5.0.4.Final'
+	
+	compile('org.springframework.boot:spring-boot-starter-data-jpa')
+	compile('org.springframework.boot:spring-boot-starter-web')
+	runtime('org.springframework.boot:spring-boot-devtools')
+	runtime('mysql:mysql-connector-java')
+	testCompile('org.springframework.boot:spring-boot-starter-test')
+	
+
+    
+}

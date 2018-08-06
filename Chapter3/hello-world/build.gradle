@@ -1,0 +1,20 @@
+apply plugin: 'java-library'
+
+repositories {
+    jcenter()
+}
+
+dependencies {
+    api 'org.apache.commons:commons-math3:3.6.1'
+
+    implementation 'com.google.guava:guava:20.0'
+	implementation 'com.h2database:h2:1.4.196'
+    compile group: 'org.apache.ignite', name: 'ignite-core', version: '2.5.0'
+    compile group: 'org.slf4j', name: 'slf4j-api', version: '1.6.0'
+    compile group: 'org.apache.ignite', name: 'ignite-spring', version: '2.5.0'
+    compile group: 'org.apache.ignite', name: 'ignite-indexing', version: '2.5.0'
+    compile group: 'log4j', name: 'log4j', version: '1.2.17'
+	compile group: 'org.apache.ignite', name: 'ignite-zookeeper', version: '2.5.0'
+         
+    testImplementation 'junit:junit:4.12'
+}
