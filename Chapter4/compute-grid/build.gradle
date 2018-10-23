@@ -1,0 +1,35 @@
+buildscript {
+	ext {
+		igniteVersion ='2.5.0'
+	}
+	repositories {
+		mavenCentral()
+	}
+}
+
+apply plugin: 'java'
+apply plugin: 'eclipse'
+
+group = 'compute-datagrid'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = 1.8
+
+repositories {
+maven{
+	  url "http://www.gridgainsystems.com/nexus/content/repositories/external/"
+	}
+	mavenCentral()
+}
+
+
+dependencies {
+    //Ignite deps
+    compile group: 'org.apache.ignite', name: 'ignite-core', version: "${igniteVersion}"
+    compile group: 'org.apache.ignite', name: 'ignite-spring', version: "${igniteVersion}"
+    compile group: 'org.apache.ignite', name: 'ignite-indexing', version: "${igniteVersion}"
+    compile group: 'org.apache.ignite', name: 'ignite-aop', version: "${igniteVersion}"
+    compile group: 'org.apache.ignite', name: 'ignite-schedule', version: '1.2.0-incubating'
+	compile group: 'com.h2database', name: 'h2', version: '1.4.195'
+	compile group: 'org.aspectj', name: 'aspectjweaver', version: '1.9.1'
+	
+}
