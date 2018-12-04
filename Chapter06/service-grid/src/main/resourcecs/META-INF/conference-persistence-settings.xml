@@ -1,0 +1,10 @@
+<persistence keyspace="persistence" table="conference">
+    <keyPersistence class="java.lang.Integer" strategy="PRIMITIVE" column="id"/>
+    <valuePersistence class="com.persistence.cassendra.Conference" strategy="POJO">
+      <field name="id" column="id"/>
+      <field name="name" column="name"/>
+      <field name="startDateTime" column="startdatetime"/>
+      <field name="endDateTime" column="enddatetime"/>
+    </valuePersistence>
+    
+</persistence>

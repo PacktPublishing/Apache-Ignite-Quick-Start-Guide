@@ -1,0 +1,8 @@
+<persistence keyspace="persistence" table="conference_blob">
+	<keyPersistence class="java.lang.Integer" strategy="PRIMITIVE"
+		column="id" />
+	<valuePersistence class="com.persistence.cassendra.Conference"
+		strategy="BLOB"
+		serializer="org.apache.ignite.cache.store.cassandra.serializer.KryoSerializer" />
+</persistence>
+    
